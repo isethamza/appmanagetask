@@ -1,0 +1,11 @@
+<h1>Hello Angular 1</h1>
+
+
+@for (task of tasks; track task.id) {
+<app-task [taskTitle]="task.title" [isDone]="task.done"
+(remove)="removeTask($index)"
+></app-task>
+}
+
+
+<button (click)="addNewTask()">Add new task</button>
