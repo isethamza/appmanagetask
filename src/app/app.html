@@ -1,5 +1,25 @@
 <h1>Hello Angular 1</h1>
 
+<p>Original: {{ 'hello angular' }}</p>
+<p>Uppercase: {{ 'hello angular' | uppercase }}</p>
+<p>Lowercase: {{ 'HELLO ANGULAR' | lowercase }}</p>
+<p>Titlecase: {{ 'learn angular framework' | titlecase }}</p>
+
+
+<hr>
+
+<p>Default: {{ today }}</p>
+<p>Short Date: {{ today | date:'shortDate' }}</p>
+<p>Full Date: {{ today | date:'fullDate' }}</p>
+<p>Custom Format: {{ today | date:'dd/MM/yyyy HH:mm' }}</p>
+<p>Custom Format: {{ today | date:'dd/MM/yyyy HH:mm' }}</p>
+
+<hr>
+
+<p>Price (default): {{ price }}</p>
+<p>Price (2 decimals): {{ price | number:'1.2-2' }}</p>
+<p>Currency: {{ price | currency:'USD' }}</p>
+<p>Percentage: {{ percentage | percent }}</p>
 
 @for (task of tasks; track task.id) {
 <app-task [taskTitle]="task.title" [isDone]="task.done"
