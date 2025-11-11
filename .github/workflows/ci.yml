@@ -27,12 +27,15 @@ jobs:
         run: npm ci
 
       - name: Build Angular app
-        run: npm run build -- --configuration production --base-href "/todolist/"
+        run: npm run build -- --configuration production --base-href "/appmanagetask/"
+      - name: Create 404.html for SPA redirect
+        run: cp dist/appmanagetask/browser/index.html dist/appmanagetask/browser/404.html
+
 
       - name: Upload dist folder
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist/todolist/browser # ✅ must point to your Angular build output
+          path: dist/appmanagetask/browser # ✅ must point to your Angular build output
 
   deploy:
     environment:
