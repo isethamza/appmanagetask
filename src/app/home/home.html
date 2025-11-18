@@ -1,0 +1,12 @@
+<h2>Tasks from Service</h2>
+<h1>{{ title() }}</h1>
+<hr>
+@for (t of tasks; track t.id) {
+    <app-task 
+        [taskTitle]="t.title" 
+        [isDone]="t.done"
+        (deleted)="removeTask($index)">
+    </app-task>
+}
+<button (click)="addNewTask()">+</button>
+<hr>

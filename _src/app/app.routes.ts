@@ -1,0 +1,11 @@
+import { Routes } from '@angular/router';
+import { About } from './about/about';
+import { App } from './app';
+import { Home } from './home/home';
+
+export const routes: Routes = [
+
+  { path: '', component: Home},
+  { path: 'about', component: About }
+
+];

@@ -1,40 +1,56 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet,RouterLink } from '@angular/router';
 import { Task } from "./task/task";
-import { CurrencyPipe, DatePipe, DecimalPipe, LowerCasePipe, PercentPipe, TitleCasePipe, UpperCasePipe } from '@angular/common';
-import { TaskService } from './task-service';
+import { Taskservice } from './taskservice';
 
+// interface TaskModel {
+//   id: number;
+//   title: string;
+//   done: boolean;
+// }
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Task,UpperCasePipe,LowerCasePipe,TitleCasePipe,
-    DatePipe,CurrencyPipe,PercentPipe,DecimalPipe
-  ],
+  standalone: true,
+  imports: [RouterOutlet, RouterLink,Task],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('todolist');
+  protected readonly title = signal('📋todolist✌️');
 
-  today = new Date();
-  price = 1234.56;
- percentage = 0.259;
+// today = new Date();
 
-  i : number=0;
-  
+// price = 1234.56;
+// percentage = 0.259;
+
 tasks: any[] = [];
-  constructor(private taskService: TaskService) {}
+
+constructor(private Taskservice: Taskservice) {}
 ngOnInit() {
-this.tasks = this.taskService.getTasks();
+this.tasks = this.Taskservice.getTasks();
 }
+addNewTask(){
 
-  addNewTask(){
-
-    this.taskService.addTask("new task service")
+    this.Taskservice.addTask("new task service")
 
   }
 
-  removeTask(idx:number){
-   this.taskService.removeTask(idx)
+  removeTask(id:number){
+  this.Taskservice.removeTask(id)
   }
-
 }
+//   // Add new task
+//   addTask(title: string) {
+//     if (!title.trim()) return;
+//     this.tasks.push({
+//       id: Date.now(),
+//       title,
+//       done: false
+//     });
+//   }
+
+//   // Delete task
+//   deleteTask(id: number) {
+//     this.tasks = this.tasks.filter(t => t.id !== id);
+//   }
+// }
