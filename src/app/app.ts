@@ -11,7 +11,7 @@ import { Taskservice } from './taskservice';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink,Task],
+  imports: [RouterOutlet, RouterLink],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -24,8 +24,8 @@ export class App {
 // percentage = 0.259;
 
 tasks: any[] = [];
-
-constructor(private Taskservice: Taskservice) {}
+ 
+constructor(private Taskservice: Taskservice,) {}
 ngOnInit() {
 this.tasks = this.Taskservice.getTasks();
 }

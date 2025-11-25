@@ -9,4 +9,9 @@
     </app-task>
 }
 <button (click)="addNewTask()">+</button>
+<form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+  <label for="title">Title:</label>
+  <input id="title" formControlName="title" required />
+  <button type="submit">Add Task</button>
+</form>
 <hr>
